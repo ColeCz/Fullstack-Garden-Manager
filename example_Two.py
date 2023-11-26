@@ -20,7 +20,7 @@ app.logger.setLevel(logging.INFO)
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'Schwalbegraze0!',
+    'password': 'example_password',
     'database': 'professorreveiws',
 }
 
