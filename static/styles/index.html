@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include necessary CSS and JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div>
+        <!--1 contains Table CRUD Operations-->
+        <div>
+            <h1>Contains Table CRUD Operations</h1>
+            <label for="gardenId">Garden ID:</label>
+            <input type="text" id="gardenId">
+            <label for="plantId">Plant ID:</label>
+            <input type="text" id="plantId">
+        
+            <button id="createButton">Create Relation</button>
+            <button id="getButton">Get Relation</button>
+            <button id="deleteButton">Delete Relation</button>
+        </div>
+
+        <!--2 employs Table CRUD Operations-->
+        <div>
+            <h1>Employs Table CRUD Operations</h1>
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId">
+            <label for="workerId">Worker ID:</label>
+            <input type="text" id="workerId">
+
+            <button id="createEmploysButton">Create Relation</button>
+            <button id="getEmploysButton">Get Relation</button>
+            <button id="deleteEmploysButton">Delete Relation</button>
+        </div>
+
+        <!--3 gardens Table CRUD Operations-->
+        <div>
+            <h1>Gardens Table CRUD Operations</h1>
+            <label for="location">Location:</label>
+            <input type="text" id="location">
+            <label for="size">Size:</label>
+            <input type="text" id="size">
+            <label for="capacity">Capacity:</label>
+            <input type="text" id="capacity">
+            <label for="soil">Soil Type:</label>
+            <input type="text" id="soil">
+
+            <button id="createGardenButton">Create Garden</button>
+            <button id="getGardenButton">Get Garden</button>
+            <button id="updateGardenButton">Update Garden</button>
+            <button id="deleteGardenButton">Delete Garden</button>
+        </div>
+
+        <!--4 gardens_relationship Table CRUD Operations-->
+        <div>
+            <h1>Gardens Relationship Table CRUD Operations</h1>
+            <label for="gardenId">Garden ID:</label>
+            <input type="text" id="gardenId">
+            <label for="workerId">Worker ID:</label>
+            <input type="text" id="workerId">
+        
+            <button id="createGardenRelButton">Create Relation</button>
+            <button id="getGardenRelButton">Get Relation</button>
+            <button id="deleteGardenRelButton">Delete Relation</button>
+        </div>
+        
+        <!--5 operates Table CRUD Operations-->
+        <div>
+            <h1>Operates Table CRUD Operations</h1>
+            <label for="userIdOperates">User ID:</label>
+            <input type="text" id="userIdOperates">
+            <label for="gardenIdOperates">Garden ID:</label>
+            <input type="text" id="gardenIdOperates">
+        
+            <button id="createOperatesButton">Create Relation</button>
+            <button id="getOperatesButton">Get Relation</button>
+            <button id="deleteOperatesButton">Delete Relation</button>
+        </div>
+        
+        <!--6 owns Table CRUD Operations-->
+        <div>
+            <h1>Owns Table CRUD Operations</h1>
+            <label for="userIdOwns">User ID:</label>
+            <input type="text" id="userIdOwns">
+            <label for="plantIdOwns">Plant ID:</label>
+            <input type="text" id="plantIdOwns">
+        
+            <button id="createOwnsButton">Create Relation</button>
+            <button id="getOwnsButton">Get Relation</button>
+            <button id="deleteOwnsButton">Delete Relation</button>
+        </div>
+        
+        <!--7 plants Table CRUD Operations-->
+        <div>
+            <h1>Plants Table CRUD Operations</h1>
+            <label for="plantStage">Plant Stage:</label>
+            <input type="text" id="plantStage">
+            <label for="plantHealth">Plant Health:</label>
+            <input type="text" id="plantHealth">
+            <!-- Add other necessary input fields for plant attributes -->
+        
+            <button id="createPlantButton">Create Plant</button>
+            <button id="getPlantButton">Get Plant</button>
+            <button id="updatePlantButton">Update Plant</button>
+            <button id="deletePlantButton">Delete Plant</button>
+        </div>
+        
+        <!--8 plants_relationship Table CRUD Operations-->
+        <div>
+            <h1>Plants_Relationship Table CRUD Operations</h1>
+            <label for="workerIdPlantsRelationship">Worker ID:</label>
+            <input type="text" id="workerIdPlantsRelationship">
+            <label for="plantIdPlantsRelationship">Plant ID:</label>
+            <input type="text" id="plantIdPlantsRelationship">
+        
+            <button id="createPlantsRelationshipButton">Create Relation</button>
+            <button id="getPlantsRelationshipButton">Get Relation</button>
+            <button id="deletePlantsRelationshipButton">Delete Relation</button>
+        </div>
+        
+        <!--9 seeds Table CRUD Operations-->
+        <div>
+            <h1>Seeds Table CRUD Operations</h1>
+            <label for="parentPlantId">Parent Plant ID:</label>
+            <input type="text" id="parentPlantId">
+            <label for="childPlantId">Child Plant ID:</label>
+            <input type="text" id="childPlantId">
+        
+            <button id="createSeedsButton">Create Relation</button>
+            <button id="getSeedsButton">Get Relation</button>
+            <button id="deleteSeedsButton">Delete Relation</button>
+        </div>
+            
+        <!--10 tends Table CRUD Operations-->
+        <div>
+            <h1>Tends Table CRUD Operations</h1>
+            <label for="workerIdTends">Worker ID:</label>
+            <input type="text" id="workerIdTends">
+            <label for="plantIdTends">Plant ID:</label>
+            <input type="text" id="plantIdTends">
+        
+            <button id="createTendsButton">Create Relation</button>
+            <button id="getTendsButton">Get Relation</button>
+            <button id="deleteTendsButton">Delete Relation</button>
+        </div>
+        
+        <!--11 user Table CRUD Operations-->
+        <div>
+            <h1>User Table CRUD Operations</h1>
+            <label for="userEmail">User Email:</label>
+            <input type="text" id="userEmail">
+            <label for="userPassword">User Password:</label>
+            <input type="text" id="userPassword">
+        
+            <button id="createUserButton">Create User</button>
+            <button id="getUserButton">Get User</button>
+            <button id="updateUserButton">Update User</button>
+            <button id="deleteUserButton">Delete User</button>
+        </div>
+        
+        <!--12 workers Table CRUD Operations-->
+        <div>
+            <h1>Workers Table CRUD Operations</h1>
+            <label for="workerName">Worker Name:</label>
+            <input type="text" id="workerName">
+            <label for="workerProficiency">Worker Proficiency:</label>
+            <input type="text" id="workerProficiency">
+        
+            <button id="createWorkerButton">Create Worker</button>
+            <button id="getWorkerButton">Get Worker</button>
+            <button id="updateWorkerButton">Update Worker</button>
+            <button id="deleteWorkerButton">Delete Worker</button>
+        </div>
+    </div>
+    
+    <script>
+        // Place your AJAX code here
+
+        //1 contains. AJAX requests for Create, Read, and Delete operations
+
+        // Create Relation (POST)
+        $('#createButton').click(function() {
+            var gardenId = $('#gardenIdInput').val();
+            var plantId = $('#plantIdInput').val();
+            $.ajax({
+                url: '/contains',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ "garden_id": gardenId, "plant_id": plantId }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Get Relation (GET)
+        $('#getButton').click(function() {
+            var gardenId = $('#gardenIdInput').val();
+            var plantId = $('#plantIdInput').val();
+            $.ajax({
+                url: `/contains/${gardenId}/${plantId}`,
+                type: 'GET',
+                success: function(response) {
+                    console.log(response); // Log retrieved data
+                    // Use the data as needed in your frontend
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+        // Update Relation (PUT)
+        $('#updateButton').click(function() {
+            var gardenId = $('#gardenIdInput').val();
+            var plantId = $('#plantIdInput').val();
+            // Additional data you want to update (for example, newGardenId, newPlantId)
+            var newGardenId = $('#newGardenIdInput').val();
+            var newPlantId = $('#newPlantIdInput').val();
+            $.ajax({
+                url: `/contains/${gardenId}/${plantId}`,
+                type: 'PUT', // Use PUT method for update
+                contentType: 'application/json',
+                data: JSON.stringify({ "new_garden_id": newGardenId, "new_plant_id": newPlantId }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+        // Delete Relation (DELETE)
+        $('#deleteButton').click(function() {
+            var gardenId = $('#gardenIdInput').val();
+            var plantId = $('#plantIdInput').val();
+            $.ajax({
+                url: `/contains/${gardenId}/${plantId}`,
+                type: 'DELETE',
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        //2 employs. AJAX requests for Create, Read, and Delete operations
+
+      // Create Relation (POST)
+
+        $(document).ready(function() {
+            // Create Relation (POST)
+            $('#createButton').click(function() {
+                var userId = $('#userIdInput').val();
+                var workerId = $('#workerIdInput').val();
+                $.ajax({
+                    url: '/employs',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ "user_id": userId, "worker_id": workerId }),
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Get Relation (GET)
+            $('#getButton').click(function() {
+                var userId = $('#userIdInput').val();
+                var workerId = $('#workerIdInput').val();
+                $.ajax({
+                    url: `/employs/${userId}/${workerId}`,
+                    type: 'GET',
+                    success: function(response) {
+                        console.log(response); // Log retrieved data
+                        // Use the data as needed in your frontend
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Update Relation (PUT)
+            $('#updateButton').click(function() {
+                var userId = $('#userIdInput').val();
+                var workerId = $('#workerIdInput').val();
+                // Additional data you want to update
+                var newUserId = $('#newUserIdInput').val();
+                var newWorkerId = $('#newWorkerIdInput').val();
+                $.ajax({
+                    url: `/employs/${userId}/${workerId}`,
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ "new_user_id": newUserId, "new_worker_id": newWorkerId }),
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Delete Relation (DELETE)
+            $('#deleteButton').click(function() {
+                var userId = $('#userIdInput').val();
+                var workerId = $('#workerIdInput').val();
+                $.ajax({
+                    url: `/employs/${userId}/${workerId}`,
+                    type: 'DELETE',
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        });
+
+        //3 gardens. AJAX requests for Create, Read, and Delete operations
+        $(document).ready(function() {
+            // Create Garden (POST)
+            $('#createGardenButton').click(function() {
+                var location = $('#locationInput').val();
+                var size = $('#sizeInput').val();
+                var capacity = $('#capacityInput').val();
+                var soil = $('#soilInput').val();
+                $.ajax({
+                    url: '/gardens',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ "location": location, "size": size, "capacity": capacity, "soil": soil }),
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Get Garden (GET)
+            $('#getGardenButton').click(function() {
+                var gardenId = $('#gardenIdInput').val();
+                $.ajax({
+                    url: `/gardens/${gardenId}`,
+                    type: 'GET',
+                    success: function(response) {
+                        console.log(response); // Log retrieved data
+                        // Use the data as needed in your frontend
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Update Garden (PUT)
+            $('#updateGardenButton').click(function() {
+                var gardenId = $('#gardenIdInput').val();
+                // Additional data you want to update (for example, newLocation, newSize, newCapacity, newSoil)
+                var newLocation = $('#newLocationInput').val();
+                var newSize = $('#newSizeInput').val();
+                var newCapacity = $('#newCapacityInput').val();
+                var newSoil = $('#newSoilInput').val();
+                $.ajax({
+                    url: `/gardens/${gardenId}`,
+                    type: 'PUT', // Use PUT method for update
+                    contentType: 'application/json',
+                    data: JSON.stringify({ "new_location": newLocation, "new_size": newSize, "new_capacity": newCapacity, "new_soil": newSoil }),
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Delete Garden (DELETE)
+            $('#deleteGardenButton').click(function() {
+                var gardenId = $('#gardenIdInput').val();
+                $.ajax({
+                    url: `/gardens/${gardenId}`,
+                    type: 'DELETE',
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        });
+        //4 gardens_relationship. AJAX requests for Create, Read, and Delete operations
+        // Create Relation (POST)
+        $('#createButton').click(function() {
+            var gardenId = $('#gardenIdInput').val();
+            var workerId = $('#workerIdInput').val();
+            $.ajax({
+                url: '/gardens_relationship',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ "garden_id": gardenId, "worker_id": workerId }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Get Relation (GET)
+        $('#getButton').click(function() {
+            var gardenId = $('#gardenIdInput').val();
+            var workerId = $('#workerIdInput').val();
+            $.ajax({
+                url: `/gardens_relationship/${gardenId}/${workerId}`,
+                type: 'GET',
+                success: function(response) {
+                    console.log(response); // Log retrieved data
+                    // Use the data as needed in your frontend
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Update Relation (PUT)
+        $('#updateButton').click(function() {
+            var gardenId = $('#gardenIdInput').val();
+            var workerId = $('#workerIdInput').val();
+            // Additional data you want to update (for example, newGardenId, newWorkerId)
+            var newGardenId = $('#newGardenIdInput').val();
+            var newWorkerId = $('#newWorkerIdInput').val();
+            $.ajax({
+                url: `/gardens_relationship/${gardenId}/${workerId}`,
+                type: 'PUT', // Use PUT method for update
+                contentType: 'application/json',
+                data: JSON.stringify({ "new_garden_id": newGardenId, "new_worker_id": newWorkerId }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Delete Relation (DELETE)
+        $('#deleteButton').click(function() {
+            var gardenId = $('#gardenIdInput').val();
+            var workerId = $('#workerIdInput').val();
+            $.ajax({
+                url: `/gardens_relationship/${gardenId}/${workerId}`,
+                type: 'DELETE',
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+        //5 operates. AJAX requests for Create, Read, and Delete operations
+        // Create Relation (POST)
+        $('#createOperatesButton').click(function() {
+            var userId = $('#userIdInput').val();
+            var gardenId = $('#gardenIdInput').val();
+            $.ajax({
+                url: '/operates',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ "user_id": userId, "garden_id": gardenId }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Get Relation (GET)
+        $('#getOperatesButton').click(function() {
+            var userId = $('#userIdInput').val();
+            var gardenId = $('#gardenIdInput').val();
+            $.ajax({
+                url: `/operates/${userId}/${gardenId}`,
+                type: 'GET',
+                success: function(response) {
+                    console.log(response); // Log retrieved data
+                    // Use the data as needed in your frontend
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Update Relation (PUT)
+        $('#updateOperatesButton').click(function() {
+            var userId = $('#userIdInput').val();
+            var gardenId = $('#gardenIdInput').val();
+            // Additional data you want to update (for example, newUserId, newGardenId)
+            var newUserId = $('#newUserIdInput').val();
+            var newGardenId = $('#newGardenIdInput').val();
+            $.ajax({
+                url: `/operates/${userId}/${gardenId}`,
+                type: 'PUT', // Use PUT method for update
+                contentType: 'application/json',
+                data: JSON.stringify({ "new_user_id": newUserId, "new_garden_id": newGardenId }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Delete Relation (DELETE)
+        $('#deleteOperatesButton').click(function() {
+            var userId = $('#userIdInput').val();
+            var gardenId = $('#gardenIdInput').val();
+            $.ajax({
+                url: `/operates/${userId}/${gardenId}`,
+                type: 'DELETE',
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        //6 plants. AJAX requests for Create, Read, and Delete operations
+        $(document).ready(function() {
+            // Create Plant (POST)
+            $('#createPlantButton').click(function() {
+                var stage = $('#stageInput').val();
+                var health = $('#healthInput').val();
+                var name = $('#nameInput').val();
+                var type = $('#typeInput').val();
+                $.ajax({
+                    url: '/plants',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ "stage": stage, "health": health, "name": name, "type": type }),
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Get Plant (GET)
+            $('#getPlantButton').click(function() {
+                var plantId = $('#plantIdInput').val();
+                $.ajax({
+                    url: `/plants/${plantId}`,
+                    type: 'GET',
+                    success: function(response) {
+                        console.log(response); // Log retrieved data
+                        // Use the data as needed in your frontend
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Update Plant (PUT)
+            $('#updatePlantButton').click(function() {
+                var plantId = $('#plantIdInput').val();
+                var newStage = $('#newStageInput').val();
+                var newHealth = $('#newHealthInput').val();
+                var newName = $('#newNameInput').val();
+                var newType = $('#newTypeInput').val();
+                $.ajax({
+                    url: `/plants/${plantId}`,
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ "stage": newStage, "health": newHealth, "name": newName, "type": newType }),
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Delete Plant (DELETE)
+            $('#deletePlantButton').click(function() {
+                var plantId = $('#plantIdInput').val();
+                $.ajax({
+                    url: `/plants/${plantId}`,
+                    type: 'DELETE',
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        });
+        
+        //7 plants_relationship. AJAX requests for Create, Read, and Delete operations
+        $(document).ready(function() {
+            // Create Relation (POST)
+            $('#createButton').click(function() {
+                var workerId = $('#workerIdInput').val();
+                var plantId = $('#plantIdInput').val();
+                $.ajax({
+                    url: '/plants_relationship',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ "worker_id": workerId, "plant_id": plantId }),
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Get Relation (GET)
+            $('#getButton').click(function() {
+                var workerId = $('#workerIdInput').val();
+                var plantId = $('#plantIdInput').val();
+                $.ajax({
+                    url: `/plants_relationship/${workerId}/${plantId}`,
+                    type: 'GET',
+                    success: function(response) {
+                        console.log(response); // Log retrieved data
+                        // Use the data as needed in your frontend
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Update Relation (PUT)
+            $('#updateButton').click(function() {
+                var workerId = $('#workerIdInput').val();
+                var plantId = $('#plantIdInput').val();
+                var newWorkerId = $('#newWorkerIdInput').val();
+                var newPlantId = $('#newPlantIdInput').val();
+                $.ajax({
+                    url: `/plants_relationship/${workerId}/${plantId}`,
+                    type: 'PUT', // Use PUT method for update
+                    contentType: 'application/json',
+                    data: JSON.stringify({ "new_worker_id": newWorkerId, "new_plant_id": newPlantId }),
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        
+            // Delete Relation (DELETE)
+            $('#deleteButton').click(function() {
+                var workerId = $('#workerIdInput').val();
+                var plantId = $('#plantIdInput').val();
+                $.ajax({
+                    url: `/plants_relationship/${workerId}/${plantId}`,
+                    type: 'DELETE',
+                    success: function(response) {
+                        console.log(response.message); // Log success message
+                    },
+                    error: function(error) {
+                        console.error('Error:', error); // Log error message
+                    }
+                });
+            });
+        });
+        
+        //8 seeds. AJAX requests for Create, Read, and Delete operations
+            // Create Seed Relation (POST)
+        $('#createSeedButton').click(function() {
+            var parentPlantId = $('#parentPlantIdInput').val();
+            var childPlantId = $('#childPlantIdInput').val();
+            $.ajax({
+                url: '/seeds',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ "parent_plant_id": parentPlantId, "child_plant_id": childPlantId }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Get Seed Relation (GET)
+        $('#getSeedButton').click(function() {
+            var parentPlantId = $('#parentPlantIdInput').val();
+            var childPlantId = $('#childPlantIdInput').val();
+            $.ajax({
+                url: `/seeds/${parentPlantId}/${childPlantId}`,
+                type: 'GET',
+                success: function(response) {
+                    console.log(response); // Log retrieved data
+                    // Use the data as needed in your frontend
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Update Seed Relation (PUT)
+        $('#updateSeedButton').click(function() {
+            var parentPlantId = $('#parentPlantIdInput').val();
+            var childPlantId = $('#childPlantIdInput').val();
+            var newParentPlantId = $('#newParentPlantIdInput').val();
+            var newChildPlantId = $('#newChildPlantIdInput').val();
+            $.ajax({
+                url: `/seeds/${parentPlantId}/${childPlantId}`,
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify({ "new_parent_plant_id": newParentPlantId, "new_child_plant_id": newChildPlantId }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Delete Seed Relation (DELETE)
+        $('#deleteSeedButton').click(function() {
+            var parentPlantId = $('#parentPlantIdInput').val();
+            var childPlantId = $('#childPlantIdInput').val();
+            $.ajax({
+                url: `/seeds/${parentPlantId}/${childPlantId}`,
+                type: 'DELETE',
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+       
+        //9 tends. AJAX requests for Create, Read, and Delete operations
+            // Create Relation (POST)
+        $('#createTendsButton').click(function() {
+            var workerId = $('#workerIdInput').val();
+            var plantId = $('#plantIdInput').val();
+            // Additional data you want to create (if needed)
+            // var additionalData = ...
+
+            $.ajax({
+                url: '/tends',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ "worker_id": workerId, "plant_id": plantId /*, ... additionalData */ }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Get Relation (GET)
+        $('#getTendsButton').click(function() {
+            var workerId = $('#workerIdInput').val();
+            var plantId = $('#plantIdInput').val();
+
+            $.ajax({
+                url: `/tends/${workerId}/${plantId}`,
+                type: 'GET',
+                success: function(response) {
+                    console.log(response); // Log retrieved data
+                    // Use the data as needed in your frontend
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Update Relation (PUT)
+        $('#updateTendsButton').click(function() {
+            var workerId = $('#workerIdInput').val();
+            var plantId = $('#plantIdInput').val();
+            // Additional data you want to update (if needed)
+            // var newWorkerId = $('#newWorkerIdInput').val();
+            // var newPlantId = $('#newPlantIdInput').val();
+
+            $.ajax({
+                url: `/tends/${workerId}/${plantId}`,
+                type: 'PUT', // Use PUT method for update
+                contentType: 'application/json',
+                data: JSON.stringify({ /* "new_worker_id": newWorkerId, "new_plant_id": newPlantId, ... */ }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Delete Relation (DELETE)
+        $('#deleteTendsButton').click(function() {
+            var workerId = $('#workerIdInput').val();
+            var plantId = $('#plantIdInput').val();
+
+            $.ajax({
+                url: `/tends/${workerId}/${plantId}`,
+                type: 'DELETE',
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+            
+        //10 users. AJAX requests for Create, Read, and Delete operations
+            // Create User (POST)
+        $('#createUserButton').click(function() {
+            var email = $('#emailInput').val();
+            var password = $('#passwordInput').val();
+            $.ajax({
+                url: '/users',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ "email": email, "password": password }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Get User (GET)
+        $('#getUserButton').click(function() {
+            var userId = $('#userIdInput').val();
+            $.ajax({
+                url: `/users/${userId}`,
+                type: 'GET',
+                success: function(response) {
+                    console.log(response); // Log retrieved data
+                    // Use the data as needed in your frontend
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Update User (PUT)
+        $('#updateUserButton').click(function() {
+            var userId = $('#userIdInput').val();
+            var newEmail = $('#newEmailInput').val();
+            var newPassword = $('#newPasswordInput').val();
+            $.ajax({
+                url: `/users/${userId}`,
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify({ "email": newEmail, "password": newPassword }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Delete User (DELETE)
+        $('#deleteUserButton').click(function() {
+            var userId = $('#userIdInput').val();
+            $.ajax({
+                url: `/users/${userId}`,
+                type: 'DELETE',
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+        
+        //11 workers. AJAX requests for Create, Read, and Delete operations
+        // Create Worker (POST)
+        $('#createWorkerButton').click(function() {
+            var name = $('#workerNameInput').val();
+            var proficiency = $('#workerProficiencyInput').val();
+            $.ajax({
+                url: '/workers',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ "name": name, "proficiency": proficiency }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Get Worker (GET)
+        $('#getWorkerButton').click(function() {
+            var workerId = $('#workerIdInput').val();
+            $.ajax({
+                url: `/workers/${workerId}`,
+                type: 'GET',
+                success: function(response) {
+                    console.log(response); // Log retrieved data
+                    // Use the data as needed in your frontend
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Update Worker (PUT)
+        $('#updateWorkerButton').click(function() {
+            var workerId = $('#workerIdInput').val();
+            var newName = $('#newWorkerNameInput').val();
+            var newProficiency = $('#newWorkerProficiencyInput').val();
+            $.ajax({
+                url: `/workers/${workerId}`,
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify({ "name": newName, "proficiency": newProficiency }),
+                success: function(response) {
+                    console.log(response.message); // Log success message
+                },
+                error: function(error) {
+                    console.error('Error:', error); // Log error message
+                }
+            });
+        });
+
+        // Delete Worker (DELETE)
+        $('#deleteWorkerButton').click(function() {
+        var workerId = $('#workerIdInput').val();
+        $.ajax({
+            url: `/workers/${workerId}`,
+            type: 'DELETE',
+            success: function(response) {
+                console.log(response.message); // Log success message
+            },
+            error: function(error) {
+                console.error('Error:', error); // Log error message
+            }
+        });
+    });
+
+    </script>
+</body>
+</html>
