@@ -1,30 +1,14 @@
-/* styles.css */
-
-/* Global styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-/* Header styles */
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 0px;
 }
 
 /* Footer styles */
 footer {
     background-color: #f9f9f9;
     color: #333;
-    padding: 10px;
+    padding: 3px;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -45,8 +29,8 @@ label {
 
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
+    width: 25%;
+    padding: 7px;
     margin: 8px 0;
     box-sizing: border-box;
 }
@@ -81,3 +65,63 @@ th {
     background-color: #4CAF50;
     color: white;
 }
+
+/* Cole's added code (11-16)-------------------------------------------------------------------------------------*/
+
+.email_link {
+    text-align: center;
+}
+
+ul {
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+a {
+    color: white;
+}
+
+.nav_links {
+    color: black;
+}
+
+nav {
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    margin: 0;
+}
+
+.register_login_header {
+    font-size: 32px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+p {
+    padding-left: 15px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.email-links {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+}
+
+.auth_form {
+    padding-left: 50px;
+}
+
+/* change footer background */
