@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import mysql.connector
 
 
@@ -14,6 +14,11 @@ mydb = mysql.connector.connect(
 
 # Create a cursor object
 mycursor = mydb.cursor()
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 # User Registration:
 
 # Create a registration route where users can provide their email and password.
