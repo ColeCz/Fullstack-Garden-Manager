@@ -4,10 +4,9 @@ body {
     padding: 0px;
 }
 
-/* Footer styles */
 footer {
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #1f1e1e;
+    color: white;
     padding: 3px;
     text-align: center;
     position: fixed;
@@ -15,7 +14,6 @@ footer {
     width: 100%;
 }
 
-/* Form styles */
 form {
     margin: 20px 0;
     padding: 20px;
@@ -48,7 +46,6 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-/* Table styles */
 table {
     font-family: Arial, sans-serif;
     border-collapse: collapse;
@@ -91,12 +88,16 @@ nav {
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
+    padding-left: 15px;
 }
 
 h2 {
-    margin: 0;
+    margin: 0px;
+}
+
+.home_h2 {
+    padding-top: 60px;
+    padding-bottom: 15px;
 }
 
 .register_login_header {
@@ -104,6 +105,13 @@ h2 {
     margin-top: 30px;
     margin-bottom: 15px;
     padding-left: 15px;
+}
+
+.dbms_header {
+    font-size: 40px;
+    margin-top: 70px;
+    margin-bottom: 15px;
+    padding-left: 0px;
 }
 
 p {
@@ -124,4 +132,20 @@ p {
     padding-left: 50px;
 }
 
+.spacing {
+    padding-left: 15px;
+}
+
+.crude_spacing {
+    padding-top: 100px;
+}
+
 /* change footer background */
+/* change h2's in gms file */
+/* space the inputs */
+/* add utf 8 info in header */
+/* remove weird comments */
+/* remove password section on gms table */
+/* make lowest table visible from footer */
+
+
