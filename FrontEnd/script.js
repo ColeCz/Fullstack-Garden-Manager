@@ -69,5 +69,37 @@ function addPlant() {
 
     makeRequest("POST", "/add_plant", data, function (response) {
         alert(response.message);
+        updatePlantTable()
     });
 }
+
+function updatePlantTable() {
+    // Fetch all plants from the backend
+    fetch(apiUrl + "/get_plants")
+        .then(response => response.json())
+        .then(plants => {
+            // Clear existing table rows
+            $(".plant-table tbody").empty();
+
+            // Populate the table with the updated plant data
+            plants.forEach(function (plant) {
+                const row = `<tr>
+                                <td>${plant.id}</td>
+                                <td>${plant.name}</td>
+                                <td>${plant.type}</td>
+                                <td>${plant.stage}</td>
+                                <td>${plant.health}</td>
+                            </tr>`;
+                $(".plant-table tbody").append(row);
+            });
+        })
+        .catch(error => console.error("An error has occurred:", error));
+}
+
+$(document).ready(function () {
+    updatePlantTable();
+});
+
+window.onload = function () {
+    updatePlantTable();
+};
