@@ -27,12 +27,6 @@ def user_exists(email):
     result = mycursor.fetchone()[0]
     return result > 0
 
-def plant_exists(name):
-    query = "SELECT COUNT(*) FROM plants WHERE name = %s"
-    values = (name,)
-    mycursor.execute(query, values)
-    result = mycursor.fetchone()[0]
-    return result > 0
 # Create
 @app.route('/register_user', methods=['POST'])
 def register_user():
@@ -101,11 +95,18 @@ def add_plant():
     health = data.get('health')
 
     if name is None or type is None or stage is None or health is None:
+        print("field missing")
         return jsonify({"error": "Missing required fields"}), 400
+    
 
-    if plant_exists(name):
-        return jsonify({"message": "Plant already exists"}), 400
-
+    query = "SELECT COUNT(*) FROM plants WHERE name = %s"
+    values = (name,)
+    mycursor.execute(query, values)
+    result = mycursor.fetchone()[0]
+    if result > 0:
+        print("plant already exists")
+        return jsonify({"error": "Plant already exists"}), 400
+    
     # Perform the database insertion here
     query = "INSERT INTO plants (stage, health, name, type) VALUES (%s, %s, %s, %s)"
     values = (name, type, stage, health)
@@ -113,6 +114,25 @@ def add_plant():
     mydb.commit()
 
     return jsonify({"message": "Plant added successfully"})
+
+@app.route('/get_plants', methods=['GET'])
+def get_plants():
+    query = "SELECT * FROM Plants"
+    mycursor.execute(query)
+    plants = mycursor.fetchall()
+
+    plant_list = []
+    for plant in plants:
+        plant_data = {
+            'id': plant[0],
+            'name': plant[1],
+            'type': plant[2],
+            'stage': plant[3],
+            'health': plant[4]
+        }
+        plant_list.append(plant_data)
+
+    return jsonify(plant_list)
 
 
 
