@@ -1,5 +1,28 @@
 const apiUrl = "http://127.0.0.1:5000";
 
+function deletePlant(button) {
+    // Get the plant ID from the data attribute
+    const plantId = $(button).data('id');
+
+    // Remove the HTML row
+    $(button).closest('tr').remove();
+
+    // Send an AJAX request to the Flask backend to delete the plant from the database
+    $.ajax({
+        url: 'http://127.0.0.1:5000/delete_plant', // Replace with the actual Flask route for deleting a plant
+        method: 'POST',
+        data: { id: plantId },
+        success: function (response) {
+            // Handle success if needed
+            console.log(response);
+        },
+        error: function (error) {
+            // Handle error if needed
+            console.error(error);
+        }
+    });
+}
+
 // Function to handle API requests
 function makeRequest(method, endpoint, data, successCallback) {
     $.ajax({
