@@ -131,8 +131,30 @@ def get_plants():
             'health': plant[4]
         }
         plant_list.append(plant_data)
+    print(plant_list)
 
     return jsonify(plant_list)
+
+@app.route('/group_plants_by', methods=['POST'])
+def group_plants_by():
+    data = request.get_json()
+    selected_column = data.get('column')
+    print(selected_column)
+    if not selected_column:
+        return jsonify({"error": "Please provide a valid column for grouping"}), 400
+
+    try:
+        # Assuming 'plants' is your table name
+        query = f"SELECT {selected_column}, COUNT(plant_id) AS count FROM plants GROUP BY {selected_column}"
+        print(query)
+        mycursor.execute(query)
+        result = mycursor.fetchall()
+        print(result)
+        grouped_data = [{"name": row[0], "count": row[1]} for row in result]
+
+        return jsonify(grouped_data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 
