@@ -1,23 +1,3 @@
-// const existing_username_field = document.getElementById("existing_username_field");
-// const existing_password_field = document.getElementById("existing_password_field");
-
-// document.getElementById("sign_in_button").addEventListener("click", function () {
-//     const username = existing_username_field.value;
-//     const password = existing_password_field.value;
-
-//     if (username === "admin" && password === "admin") {
-//         window.location.href = "GMS HTML Structure.html";
-//     }
-// });
-
-/*
-var username_field = document.getElementById("signin_field_username");
-var username = "";
-username_field.addEventListener("input", function() {
-    username = username_field.value;
-    console.log("User input changed: " + username);
-});
-*/
 const apiUrl = "http://127.0.0.1:5000";
 
 // Function to handle API requests
@@ -203,13 +183,125 @@ function getAllGardenWorkers() {
     });
 }
 
+function addGarden() {
+    // Get form data
+    const formData = {
+        user_id: document.getElementById("user-id").value, // Assuming you have an input field with id "user-id" for user_id
+        location: document.getElementById("garden-location").value,
+        size: document.getElementById("garden-size").value,
+        capacity: document.getElementById("garden-capacity").value,
+        soil: document.getElementById("garden-soil").value
+    };
+
+    // Send a POST request to the server
+    fetch(apiUrl + "/gardens", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message); // Display the server response
+        // You can update the table or perform other actions as needed
+        fetchGardens(); // Assuming you have a function to update the garden table
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+function fetchGardens() {
+    fetch('http://127.0.0.1:5000/get_gardens')
+        .then(response => response.json())
+        .then(gardens => updateGardenTable(gardens))
+        .catch(error => console.error('Error fetching gardens:', error));
+}
+
+// Function to update the garden table with fetched data
+function updateGardenTable(gardens) {
+    const gardenTableBody = document.getElementById('garden-table-body');
+
+    // Clear existing rows
+    gardenTableBody.innerHTML = '';
+
+    // Add rows for each garden
+    gardens.forEach(garden => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${garden.garden_id}</td>
+            <td>${garden.user_id}</td>
+            <td>${garden.location}</td>
+            <td>${garden.size}</td>
+            <td>${garden.capacity}</td>
+            <td>${garden.soil}</td>
+        `;
+        gardenTableBody.appendChild(row);
+    });
+}
+
+function getUserGardens() {
+    const userId = document.getElementById('user-id-input').value;
+
+    const data = {
+        user_id: userId
+    };
+
+    fetch('http://127.0.0.1:5000/get_user_gardens', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(userGardens => {
+        // Create a new table for user gardens
+        createGardenTable(userGardens, 'user-garden-table');
+    })
+    .catch(error => {
+        console.error('Error fetching user gardens:', error);
+    });
+}
+
+function createGardenTable(userGardens, tableId) {
+    // Create a new table element
+    const newTable = document.createElement('table');
+    newTable.className = 'garden-table'; // You can apply additional classes if needed
+
+    // Create table header
+    const headerRow = document.createElement('tr');
+    Object.keys(userGardens[0]).forEach(header => {
+        const th = document.createElement('th');
+        th.textContent = header;
+        headerRow.appendChild(th);
+    });
+    newTable.appendChild(headerRow);
+
+    // Create table body
+    userGardens.forEach(userGarden => {
+        const newRow = document.createElement('tr');
+        Object.values(userGarden).forEach(value => {
+            const newCell = document.createElement('td');
+            newCell.textContent = value;
+            newRow.appendChild(newCell);
+        });
+        newTable.appendChild(newRow);
+    });
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.innerHTML = ''; // Clear existing content
+    resultContainer.appendChild(newTable);
+}
+
 $(document).ready(function () {
     getAllPlants();
+    getAllGardenWorkers();
+    fetchGardens();
 });
 
 window.onload = function () {
     getAllPlants();
     getAllGardenWorkers();
+    fetchGardens();
 };
 
 
