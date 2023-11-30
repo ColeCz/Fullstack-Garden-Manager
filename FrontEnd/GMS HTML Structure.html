@@ -59,7 +59,19 @@
                 <input type="text" id="plant-health" name="plant-health" placeholder="Enter plant's health">
                 <button type="button" onclick="addPlant()">Add Plant</button>
             </form>
-
+            <div class="group-by-section">
+                <h3>Group Plants By</h3>
+                <label for="columns">Select Column:</label>
+                <select id="columns" name="columns">
+                    <option value="plant_id">Plant ID</option>
+                    <option value="name">Name</option>
+                    <option value="type">Type</option>
+                    <option value="stage">Stage</option>
+                    <option value="health">Health</option>
+                    <!-- Add more options for other columns as needed -->
+                </select>
+                <button type="button" onclick="groupPlantsBy()">Group By</button>
+            </div>
             <!-- Table for displaying existing plants -->
             <h3>Existing Plants</h3>
     <table class="plant-table">
@@ -76,8 +88,20 @@
             <!-- Existing plant rows will be dynamically added here -->
         </tbody>
     </table>
-        </section>
 
+    <h3>Grouped Plants</h3>
+        <table class="grouped-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add rows for grouped plants dynamically using JavaScript -->
+            </tbody>
+        </table>
+        </section>
         <!-- Worker management section -->
         <section class="worker-management">
             <h2 class="home_h2">Worker Management</h2>
