@@ -48,6 +48,16 @@ function registerUser() {
     });
 }
 
+function getAllPlants() {
+    fetch(apiUrl + "/get_plants")
+        .then(response => response.json())
+        .then(plants => {
+            // Handle the response (e.g., update the plant table)
+            updatePlantTable(plants);
+        })
+        .catch(error => console.error("An error has occurred:", error));
+}
+
 function addPlant() {
     const plantName = $("#plant-name").val();
     const plantType = $("#plant-type").val();
@@ -69,37 +79,75 @@ function addPlant() {
 
     makeRequest("POST", "/add_plant", data, function (response) {
         alert(response.message);
-        updatePlantTable()
+        getAllPlants()
     });
 }
 
-function updatePlantTable() {
-    // Fetch all plants from the backend
-    fetch(apiUrl + "/get_plants")
-        .then(response => response.json())
-        .then(plants => {
-            // Clear existing table rows
-            $(".plant-table tbody").empty();
+function groupPlantsBy() {
+    const selectedColumn = document.getElementById("columns").value;
 
-            // Populate the table with the updated plant data
-            plants.forEach(function (plant) {
-                const row = `<tr>
-                                <td>${plant.id}</td>
-                                <td>${plant.name}</td>
-                                <td>${plant.type}</td>
-                                <td>${plant.stage}</td>
-                                <td>${plant.health}</td>
-                            </tr>`;
-                $(".plant-table tbody").append(row);
-            });
-        })
-        .catch(error => console.error("An error has occurred:", error));
+    if (!selectedColumn) {
+        alert("Please select a column for grouping");
+        return;
+    }
+
+    const data = {
+        column: selectedColumn
+    };
+
+    fetch("http://127.0.0.1:5000/group_plants_by", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(response => {
+        // Clear existing grouped table
+        console.log(response)
+        const groupedTableBody = document.querySelector(".grouped-table tbody");
+        groupedTableBody.innerHTML = "";
+
+        // Populate the grouped table with the received data
+        response.forEach(row => {
+            const newRow = `<tr><td>${row.name}</td><td>${row.count}</td></tr>`;
+            groupedTableBody.innerHTML += newRow;
+        });
+    })
+    .catch(error => {
+        console.error("Fetch error:", error);
+    });
+}
+
+function updatePlantTable(plants) {
+    // Clear existing table rows
+    $(".plant-table tbody").empty();
+
+    // Populate the table with the results
+    plants.forEach(function (plant) {
+        const row = `<tr>
+                        <td>${plant.id}</td>
+                        <td>${plant.name}</td>
+                        <td>${plant.type}</td>
+                        <td>${plant.stage}</td>
+                        <td>${plant.health}</td>
+                    </tr>`;
+        $(".plant-table tbody").append(row);
+    });
 }
 
 $(document).ready(function () {
-    updatePlantTable();
+    getAllPlants();
 });
 
 window.onload = function () {
-    updatePlantTable();
+    getAllPlants();
 };
+
+
