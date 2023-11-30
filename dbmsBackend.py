@@ -103,6 +103,23 @@ def update_user(user_id):
     mydb.commit()
     return jsonify({"message": "User updated successfully"})
 
+@app.route('/delete_plant', methods=['POST'])
+def delete_plant():
+    try:
+        plant_id = request.form.get('id')
+        print(f"Received plant_id: {plant_id}")
+
+        # Delete the plant from the database
+        delete_query = "DELETE FROM plants WHERE plant_id = %s"
+        values = (plant_id,)
+        mycursor.execute(delete_query, values)
+        mydb.commit()
+        print(f"Rows affected: {mycursor.rowcount}")
+
+        return jsonify({'message': 'Plant deleted successfully'})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 # Delete
 @app.route('/users/<int:user_id>', methods=['DELETE'])
 def delete_user(user_id):
