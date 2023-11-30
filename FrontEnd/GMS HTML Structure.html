@@ -102,10 +102,10 @@
             </tbody>
         </table>
         </section>
+        
         <!-- Worker management section -->
         <section class="worker-management">
             <h2 class="home_h2">Worker Management</h2>
-            <!-- Add worker-related HTML content here -->
             <!-- Form for adding a new worker -->
             <form class="add-worker-form">
                 <h3>Add a New Worker</h3>
@@ -113,26 +113,25 @@
                 <input type="text" id="worker-name" name="worker-name" placeholder="Enter worker's name">
                 <label for="worker-proficiency">Proficiency:</label>
                 <input type="text" id="worker-proficiency" name="worker-proficiency" placeholder="Enter worker's proficiency">
-                <input type="submit" value="Add Worker">
+                <button type="button" onclick="addGardenWorker()">Add Worker</button>
             </form>
-
+        
             <!-- Table for displaying existing workers -->
             <h3>Existing Workers</h3>
             <table class="worker-table">
-                <tr>
-                    <th>Worker ID</th>
-                    <th>Name</th>
-                    <th>Proficiency</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>Experienced</td>
-                </tr>
-                <!-- Add more rows for each existing worker -->
+                <thead>
+                    <tr>
+                        <th>Worker ID</th>
+                        <th>Proficiency</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Existing workers will be dynamically added here -->
+                </tbody>
             </table>
         </section>
-
+        
         <!-- Garden management section -->
         <section class="garden-management">
             <h2 class="home_h2">Garden Management</h2>
