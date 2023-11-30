@@ -155,7 +155,25 @@ def group_plants_by():
         return jsonify(grouped_data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+        
+@app.route('/add_garden_worker', methods=['POST'])
+def add_garden_worker():
+    data = request.get_json()
+    query = "INSERT INTO workers (proficiency, name) VALUES (%s, %s)"
+    values = (data['proficiency'], data['name'])
+    mycursor.execute(query, values)
+    mydb.commit()
+    return jsonify({"message": "Garden worker added successfully"})
 
+# Read all
+@app.route('/get_all_garden_workers', methods=['GET'])
+def get_all_garden_workers():
+    query = "SELECT * FROM workers"
+    mycursor.execute(query)
+    garden_workers = mycursor.fetchall()
+    # print(garden_workers)
+    workers_data = [{"id": row[0], "proficiency": row[1], "name": row[2]} for row in garden_workers]
+    return jsonify(workers_data)
 
 
 if __name__ == '__main__':
