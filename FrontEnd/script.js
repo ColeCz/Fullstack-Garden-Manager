@@ -142,12 +142,74 @@ function updatePlantTable(plants) {
     });
 }
 
+function addGardenWorker() {
+    const name = document.getElementById("worker-name").value;
+    const proficiency = document.getElementById("worker-proficiency").value;
+
+    if (!name || !proficiency) {
+        alert("Name and proficiency are required fields");
+        return;
+    }
+
+    const data = {
+        name: name,
+        proficiency: proficiency
+    };
+
+    fetch(apiUrl + "/add_garden_worker", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(response => {
+        alert(response.message);
+        // After adding, refresh the table
+        getAllGardenWorkers();
+    })
+    .catch(error => {
+        console.error("Fetch error:", error);
+    });
+}
+
+function getAllGardenWorkers() {
+    fetch(apiUrl + "/get_all_garden_workers")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(response => {
+        // Clear existing garden worker table
+        const gardenWorkerTableBody = document.querySelector(".worker-table tbody");
+        gardenWorkerTableBody.innerHTML = "";
+
+        // Populate the garden worker table with the received data
+        response.forEach(row => {
+            const newRow = `<tr><td>${row.id}</td><td>${row.proficiency}</td><td>${row.name}</td></tr>`;
+            gardenWorkerTableBody.innerHTML += newRow;
+        });
+    })
+    .catch(error => {
+        console.error("Fetch error:", error);
+    });
+}
+
 $(document).ready(function () {
     getAllPlants();
 });
 
 window.onload = function () {
     getAllPlants();
+    getAllGardenWorkers();
 };
 
 
