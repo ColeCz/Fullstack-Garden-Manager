@@ -105,6 +105,14 @@ def update_user(user_id):
 
 @app.route('/delete_plant', methods=['POST'])
 def delete_plant():
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Schwalbegraze0!",
+        database="new_gardenproject"
+    )
+    mycursor = mydb.cursor()
+    
     try:
         plant_id = request.form.get('id')
         print(f"Received plant_id: {plant_id}")
